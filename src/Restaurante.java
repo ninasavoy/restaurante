@@ -11,15 +11,15 @@ public class Restaurante {
         this.cardapio = new ArrayList<>();
     }
 
-    void getNome() {
+    public void getNome() {
         System.out.println("Nome: " + this.nome);
     }
 
-    void adicionarItem(String item) {
+    public void adicionarItem(String item) {
         this.cardapio.add(item);
     }
 
-    void imprimirMenu() {
+    public void imprimirMenu() {
         for (String item : cardapio) {
             System.out.println(item);
         }

@@ -20,8 +20,15 @@ public class Main {
             if (opcao == 1) {
                 System.out.println("Digite o nome do restaurante: ");
                 String nome = scanner.nextLine();
+
+                if (nome.isEmpty()){
+                    nome = scanner.nextLine();
+                }
+
+
                 System.out.println("Digite a avaliacao do restaurante: ");
                 double avaliacao = scanner.nextDouble();
+
                 Restaurante restaurante = new Restaurante(nome, avaliacao);
                 restaurantes.add(restaurante);
                 System.out.println("Restaurante " + nome + " cadastrado com sucesso!");
@@ -30,21 +37,38 @@ public class Main {
                 System.out.println("Restaurantes cadastrados:");
                 for (int id = 0; id < restaurantes.size(); id++) {
                     Restaurante restaurante = restaurantes.get(id);
-                    System.out.println(id + ":" + restaurante);
-                    restaurante.imprimirMenu();
+                    System.out.println((id + 1) + " : " + restaurante.nome + " - ★ " + restaurante.avaliacao);
+                    if (restaurante.cardapio.isEmpty()){
+                        System.out.println("O cardápio do Restaurante " + restaurante.nome + " está vazio");
+                    }
+                    else {
+                        System.out.println("Menu: ");
+                        restaurante.imprimirMenu();
+                    }
                 }
             }
             else if (opcao == 3) {
                 System.out.println("Escolha o número do restaurante para adicionar um item ao menu: ");
-                int avaliacao = scanner.nextInt();
-                Restaurante rest = restaurantes.get(avaliacao);
+                for (int id = 0; id < restaurantes.size(); id++) {
+                    Restaurante restaurante = restaurantes.get(id);
+                    System.out.println((id) + " : " + restaurante.nome);
+                }
+
+                int restauranteEscolhido = scanner.nextInt();
+
                 System.out.println("Digite o nome do item: ");
-                String nome = scanner.nextLine();
+                String nomeItem = scanner.nextLine();
+
+                if (nomeItem.isEmpty()){
+                    nomeItem = scanner.nextLine();
+                }
+
                 System.out.println("Digite o preco do item: ");
                 String preco = scanner.nextLine();
-                Item item = new Item(nome, preco);
-                String dinge = item.toString();
-                rest.adicionarItem(dinge);
+
+                Item item = new Item(nomeItem, preco);
+                Restaurante selecionado = restaurantes.get(restauranteEscolhido);
+                selecionado.adicionarItem(nomeItem);
 
             }
             else if (opcao == 4) {

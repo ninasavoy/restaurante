@@ -8,8 +8,8 @@ public class Item {
         this.preco = preco;
     }
 
-    void getItem() {
-        System.out.println("Nome:" + this.nome);
+    public void getItem() {
+        System.out.println("Nome:" + nome);
     }
 }
 
