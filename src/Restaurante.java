@@ -15,8 +15,8 @@ public class Restaurante {
         System.out.println("Nome: " + this.nome);
     }
 
-    public void adicionarItem(String item) {
-        this.cardapio.add(item);
+    public void adicionarItem(String item, String preco) {
+        this.cardapio.add(item + " " + preco);
     }
 
     public void imprimirMenu() {

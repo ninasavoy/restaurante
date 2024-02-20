@@ -9,7 +9,7 @@ public class Item {
     }
 
     public void getItem() {
-        System.out.println("Nome:" + nome);
+        System.out.println("Nome:" + this.nome);
     }
 }
 

@@ -55,6 +55,7 @@ public class Main {
                 }
 
                 int restauranteEscolhido = scanner.nextInt();
+                Restaurante selecionado = restaurantes.get(restauranteEscolhido);
 
                 System.out.println("Digite o nome do item: ");
                 String nomeItem = scanner.nextLine();
@@ -67,8 +68,7 @@ public class Main {
                 String preco = scanner.nextLine();
 
                 Item item = new Item(nomeItem, preco);
-                Restaurante selecionado = restaurantes.get(restauranteEscolhido);
-                selecionado.adicionarItem(nomeItem);
+                selecionado.adicionarItem(nomeItem, preco);
 
             }
             else if (opcao == 4) {
